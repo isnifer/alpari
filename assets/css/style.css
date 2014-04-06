@@ -268,8 +268,6 @@ body
 .page
 {
     position: relative;
-
-    min-height: 100%;
 }
 .page ul
 {
@@ -278,6 +276,8 @@ body
     margin: 0;
 
     list-style: none;
+
+    border: 2px solid #fff;
 }
 .page ul.added-2nd,
 .page ul.added-3rd
@@ -296,6 +296,7 @@ body
     cursor: move;
     text-align: center;
 
+    border: 2px solid #a7a7a7;
     background: #a7a7a7;
 }
 .page ul li:first-child
@@ -305,6 +306,13 @@ body
 .page ul li.over
 {
     border: 2px dashed #008000;
+}
+.add-list
+{
+    position: relative;
+    z-index: 99;
+
+    margin: 10px;
 }
 /* Шапка */
 .header
@@ -413,6 +421,7 @@ body
 
     min-height: 1px;
     padding-right: 10px;
+    padding-bottom: 20px;
     padding-left: 10px;
 }
 .column_xs-1

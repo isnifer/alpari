@@ -8,6 +8,11 @@
 
     var dragEl = null;
 
+    var page = $('.page'),
+        addList = $('.add-list'),
+        rows = 1,
+        lists = 3;
+
     // Добавляет копию элемента из третьего списка в первый
     var addToThirstList = function (content) {
         var li = $('<li/>');
@@ -108,12 +113,45 @@
         }, 2000);
     }
 
+    function addListHandler () {
+        var list = $('<ul/>', {
+                class: 'column column_xs-4'
+            }),
+            item = $('<li/>', {
+                text: 'List Item',
+                draggable: true
+            }),
+            row;
+
+        list.append(item);
+
+        if (lists % 3 === 0) {
+            rows += 1;
+            
+            row = $('<div/>', {
+                class: 'row g-clf'
+            });
+            
+            row.append(list);
+            page.append(row);
+        } else {
+            row = $('.row:last', page);
+            row.append(list);
+        }
+
+        lists += 1;
+
+    }
+
     // Вешаем обработчики событий
-    $('ul').on('dragstart', 'li', handleDragStart);
-    $('ul').on('dragenter', 'li', handleDragEnter);
-    $('ul').on('dragover', 'li', handleDragOver);
-    $('ul').on('drop', 'li', handleDrop);
-    $('ul').on('dragleave', 'li', handleDragLeave);
-    $('ul').on('dragend', 'li', handleDragEnd);
+    page.on('dragstart', 'li', handleDragStart);
+    page.on('dragenter', 'li', handleDragEnter);
+    page.on('dragover', 'li', handleDragOver);
+    page.on('drop', 'li', handleDrop);
+    page.on('dragleave', 'li', handleDragLeave);
+    page.on('dragend', 'li', handleDragEnd);
+
+    // Обработчик для добавления списка
+    addList.on('click', addListHandler);
 
 }(window, window.document, jQuery));

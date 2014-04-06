@@ -5,12 +5,12 @@ html, body
 
 .page
   position relative
-  min-height 100%
 
   ul
     margin 0
     list-style none
     font-size 2.5em
+    border 2px solid #fff
 
     &.added-2nd, &.added-3rd 
       border 2px dashed red
@@ -24,9 +24,15 @@ html, body
       background #a7a7a7
       text-align center
       cursor move
+      border 2px solid #a7a7a7
 
       &:first-child
         margin 0
 
       &.over
         border 2px dashed green
+
+.add-list
+  margin 10px
+  position relative
+  z-index 99
