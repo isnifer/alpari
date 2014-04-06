@@ -8,6 +8,7 @@
 
     var dragEl = null;
 
+    // Кэшируем блок списков и дефолтное состояние
     var page = $('.page'),
         addList = $('.add-list'),
         rows = 1,
@@ -113,6 +114,7 @@
         }, 2000);
     }
 
+    // Обработчик добавления списков
     function addListHandler () {
         var list = $('<ul/>', {
                 class: 'column column_xs-4'
@@ -125,6 +127,7 @@
 
         list.append(item);
 
+        // Если строка заполнена добавляем новую
         if (lists % 3 === 0) {
             rows += 1;
             
@@ -134,13 +137,14 @@
             
             row.append(list);
             page.append(row);
+
+        // Иначе находим последнюю строку и добавляем список в нее
         } else {
             row = $('.row:last', page);
             row.append(list);
         }
 
         lists += 1;
-
     }
 
     // Вешаем обработчики событий
