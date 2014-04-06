@@ -1,0 +1,32 @@
+/* Обвязка */
+html, body
+  height 100%
+  font normal 16px "PT Sans", Verdana, Tahoma
+
+.page
+  position relative
+  min-height 100%
+
+  ul
+    margin 0
+    list-style none
+    font-size 2.5em
+
+    &.added-2nd, &.added-3rd 
+      border 2px dashed red
+
+    &.added-3rd
+      background rgb(223, 182, 182)
+
+    li
+      padding 10px 0
+      margin-top 5px
+      background #a7a7a7
+      text-align center
+      cursor move
+
+      &:first-child
+        margin 0
+
+      &.over
+        border 2px dashed green
